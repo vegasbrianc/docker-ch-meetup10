@@ -13,7 +13,7 @@ Before we get started ensure you have [Docker for Mac](https://docs.docker.com/d
 ## <a name="deploy-app"></a>Step 1. Deploy a standalone application to a single node
 Before we can start Swarming let's revisit how current containers are deployed to a single node.
 
-    docker run -d --name cats-app -p 5000:5000 markchurch/cats
+    docker run -d --name cats-app -p 5000:5000 vegasbrianc/cats
 
 Verify the container is running
 
@@ -98,5 +98,16 @@ Before we can deploy a service to our newly created Swarm we should create an ov
 
    docker network ls 
 
-Step 3.2
+Step 3.2 Deploy Service
+The time has come to deploy our application to our Swarm. We will start with 1 instance of our service and then scale our service to meet demand.
+
+    docker service create --network catnet --name cat-app vegasbrianc/cats
+
+Step 3.3 Scale Cat Service
+After huge fanfare our Cat's app is exploding in populartiy. It's time to scale our Cat's app to meet this new demand.
+
+    docker service update --replicas 6 cat-app
+
+Quickly switch back to the Docker Visualizer to see how the services are placed. We can see that Swarm scheduled the service evenly across our nodes. Perfect!
+
 
