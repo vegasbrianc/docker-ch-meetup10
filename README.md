@@ -16,14 +16,15 @@ Before we can start Swarming let's revisit how current containers are deployed t
     docker run -d --name cats-app -p 5000:5000 markchurch/cats
 
 Verify the container is running
-    
-    `docker ps`
+
+    docker ps
 
 Test the container
 
-    `curl 0.0.0.0:5000`
+    curl 0.0.0.0:5000
 
-![Curl Demo](https://github.com/vegasbrianc/docker-ch-meetup10/images/curl_demo.png)
+Now you should see a cat of the day:
+![Curl Demo](https://github.com/vegasbrianc/docker-ch-meetup10/blob/master/images/curl_demo.png)
 
 ## <a name="Build-Swarm"></a>Step 2. Build the Swarm
 "If you build it, the containers will come."
@@ -32,6 +33,28 @@ Deploying a container to a single host is awesome and has a ton of use cases. Ho
 
 A Docker Swarm is a group of Docker Engines that are combined into a self-orchestrating group called a Swarm. Swarm mode contains the feature services that allows us to deploy and manage multi-container applicationss across our Docker Swarm which can contain multiple or more Docker hosts.
 
-We will create 4 new Docker Hosts. 1 x Docker Swarm Manager and 3 x Docker Nodes. The Swarm Manager is responsible to maintain/monitors the state of the swarm and schedules containers across the Swarm. The Docker Nodes run the workload of the Swarm.
+We will create 4 new Docker Hosts. 1 x Docker Swarm Manager and 2 x Docker Nodes. The Swarm Manager is responsible to maintain/monitors the state of the swarm and schedules containers across the Swarm. The Docker Nodes run the workload of the Swarm.
 
 ### Step 2.1 Build and Deploy a Swarm Manager
+Time to setup our first node in our Swarm. The first node will be the Swarm Manager.
+
+    docker-machine create -d virtualbox mgr
+
+This will create a virtual machine with the name of mgr. Once the command completes let's check the status of our newly created machine.
+
+    docker-machine ls
+    NAME   ACTIVE   DRIVER       STATE     URL                         SWARM   DOCKER    ERRORS
+    mgr    *        virtualbox   Running   tcp://192.168.99.100:2376           v1.12.1
+
+Record the IP address of our Swarm Manager as we will use it to initalize the Swarm. Let's connect to our newly created Swarm Manager
+
+    docker-machine ssh mgr
+
+Once connected let's initialize our Swarm
+
+    docker swarm init --advertise-addr 192.168.99.100
+
+Upond command completion you will notice two commands printed. Record the command for adding a work node for later. For visualization purposes we will run a Swarm Visualizer created by [Swarm Visulaizer](https://github.com/ManoMarks/docker-swarm-visualizer)
+
+### Step 2.2 Create Docker Swarm Nodes
+
