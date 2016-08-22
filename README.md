@@ -4,8 +4,8 @@ This demo will show how to deploy docker nodes using `docker-machine`, initializ
 # Agenda
 - [Prerequisites](#prerequisites)
 - [Deploy a standalone application to a single node](#deploy-app)
-- [Build the Swarm](#Step-2-Build-Swarm)
-- next
+- [Build the Swarm](#Build-Swarm)
+- [Deploy Docker Service](#deploy-service)
 
 ## Prerequisites
 Before we get started ensure you have [Docker for Mac](https://docs.docker.com/docker-for-mac/), [Docker for Windows](https://docs.docker.com/docker-for-windows/) or access to a Docker Host available running Docker version 1.12 or later.
@@ -83,6 +83,20 @@ Copy the command as we will run this on the newly created nodes.
 
 Paste the `docker swarm join` command from above into node01. Node01 should now be part of the Swarm. SSH into node02 and complete the same step. 
 
-Now our Swarm is complete. We have 1 Swarm Manager and 2 worker nodes.
+Now our Swarm is complete. We have 1 Swarm Manager and 2 worker nodes. Our Swarm is now ready to accept Docker services to schedule and orhestrate across the Swarm
 ![Swarm Visualizer](https://github.com/vegasbrianc/docker-ch-meetup10/blob/master/images/swarm_all_nodes.png)
+
+
+## <a name="deploy-service"></a>Step 3. Deploy Docker Service to the Swarm
+Before we can deploy a service to our newly created Swarm we should create an overlay network. The overlay network allows services to communicate between hosts and across the Swarm.
+
+  1. Create Swarm Overlay Network
+
+    docker network create -d overlay catnet
+
+  2. Confirm that our new network was created
+
+   docker network ls 
+
+Step 3.2
 
