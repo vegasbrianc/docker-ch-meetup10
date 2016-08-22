@@ -56,5 +56,33 @@ Once connected let's initialize our Swarm
 
 Upond command completion you will notice two commands printed. Record the command for adding a work node for later. For visualization purposes we will run a Swarm Visualizer created by [Swarm Visulaizer](https://github.com/ManoMarks/docker-swarm-visualizer)
 
+    docker run -it -d -p 8080:8080 -e HOST=192.168.99.100 -v /var/run/docker.sock:/var/run/docker.sock manomarks/visualizer
+    
+Open the visualizer to monitor changes to your swarm at `http://192.168.99.100:8080`
+
+![Swarm Visualizer](https://github.com/vegasbrianc/docker-ch-meetup10/blob/master/images/swarm_mgr.png)
+
+
 ### Step 2.2 Create Docker Swarm Nodes
+Now our manager is up and running and ready to accept worker connections. We will add new nodes to our Swarm and watch our visualizer as they come online. Go ahead and create node01 and node02.
+
+    docker-machine create -d virtualbox node01
+    docker-machine create -d virtualbox node02
+    
+Once the nodes have successfuly been created we will join them to the swarm. First, we need the Swarm Token in order to make this happen.
+
+    docker swarm join-token worker
+    To add a worker to this swarm, run the following command:
+     docker swarm join \
+    --token SWMTKN-1-1vh7h94m797al5a4pcma4p7nxdw22vqa2udwgkrkcd0twsz92d-4xgkpsqo1wyi0v7m4pnqcv2eq \
+    192.168.99.100:237
+
+Copy the command as we will run this on the newly created nodes.
+
+    docker-machine ssh node01
+
+Paste the `docker swarm join` command from above into node01. Node01 should now be part of the Swarm. SSH into node02 and complete the same step. 
+
+Now our Swarm is complete. We have 1 Swarm Manager and 2 worker nodes.
+![Swarm Visualizer](https://github.com/vegasbrianc/docker-ch-meetup10/blob/master/images/swarm_all_nodes.png)
 
