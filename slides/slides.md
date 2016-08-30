@@ -50,3 +50,55 @@
 <section data-background="https://raw.githubusercontent.com/vegasbrianc/docker-ch-meetup10/master/images/demo.gif" data-background-transition='convex' data-background-size="100% 100%" data-background="#fffffff">
 <h1 style="color:white;">DEMO TIME</h1>
 </section>
+---
+<section data-transition='convex'>
+<link rel="stylesheet" href="css/theme/serif.css" id="theme">
+<h2>Follow along</h1>
+<h3>[https://github.com/vegasbrianc/docker-ch-meetup10](github.com/vegasbrianc/docker-ch-meetup10)</h3>
+</section>
+<section data-transition='convex' data-transition='zoom'>
+<link rel="stylesheet" href="css/theme/serif.css" id="theme">
+
+    
+<h3>Step 1. Deploy a Standalone App</h3>
+<br>
+<pre class='fragment fade-up'><code data-trim data-noescape>$ docker run -d --name cats-app -p 5000:5000 vegasbrianc/cats
+</code></pre>
+<br>
+<pre class='fragment fade-up'><code data-trim data-noescape>$ docker ps
+</code></pre>
+<br>
+<pre class='fragment fade-up'><code data-trim data-noescape>$ curl 0.0.0.0:5000
+</code></pre>
+
+</section>
+
+<section data-transition='convex' data-transition='zoom'>
+<link rel="stylesheet" href="css/theme/serif.css" id="theme">
+    
+<h3>Step 2.</h3>
+<h3>If your Build it, the Swarm will come</h3>
+<br>
+<pre><code data-trim data-noescape>$ docker-machine create -d virtualbox mgr</code></pre>
+<br>
+<pre><code data-trim data-noescape>$ docker-machine create -d virtualbox node01</code></pre>
+<br>
+<pre><code data-trim data-noescape>$ docker-machine create -d virtualbox node02</code></pre>
+<br>
+<pre class='fragment fade-up'><code data-trim data-noescape>$ docker-machine ls</code></pre>
+</section>
+<section data-transition='convex' data-transition='zoom'>
+<link rel="stylesheet" href="css/theme/serif.css" id="theme">
+    
+<h3>Step 3. Initialize the Swarm</h3>
+<br>
+<pre class='fragment fade-up'><code data-trim data-noescape>$ docker-machine ssh mgr</code></pre>
+<br>
+<pre class='fragment fade-up'><code data-trim data-noescape>$ docker swarm init --advertise-addr 192.168.99.100</code></pre>
+<br>
+<pre class='fragment fade-up'><code data-trim data-noescape> ```$ docker run -it -d -p 8080:8080 -e HOST=192.168.99.100 \
+-v /var/run/docker.sock:/var/run/docker.sock \
+manomarks/visualizer```
+
+</code></pre>
+</section>
