@@ -1,14 +1,14 @@
 
-<section  data-background='https://raw.githubusercontent.com/vegasbrianc/docker-ch-meetup10/master/images/container_yard.jpg' data-state='blackout'>
+<section  data-background='pres/images/container_yard.jpg' data-state='blackout'>
 </section>
-<section  data-state='blackout' data-background-image="https://raw.githubusercontent.com/vegasbrianc/docker-ch-meetup10/master/images/container_yard.jpg" ><div class="sl-block" data-block-type="text" style="width: 900px; left: 88px; top: 23px; height: auto;" data-block-id="cae64ddc3e32ca49f73b6ec7ffddf190"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="color: rgb(255, 255, 255); z-index: 11; border: 5px solid rgb(68, 68, 68); padding: 10px; background-color: rgb(170, 170, 170);">
+<section  data-state='blackout' data-background-image="pres/images/container_yard.jpg" ><div class="sl-block" data-block-type="text" style="width: 900px; left: 88px; top: 23px; height: auto;" data-block-id="cae64ddc3e32ca49f73b6ec7ffddf190"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="color: rgb(255, 255, 255); z-index: 11; border: 5px solid rgb(68, 68, 68); padding: 10px; background-color: rgb(170, 170, 170);">
 <h2 style="color:white;">Docker Swarm Demo</h2>
 <h4 style="color:white;">Docker Switzerland Meetup #10</h4>
 <h4 style="color:white;">13 September 2016</h4>
 </div></div>
-<div class="sl-block" data-block-type="image" style="min-width: 30px; min-height: 30px; width: 220px; height: 320px; left: 10px; top: 420px;"><div class="sl-block-content" style="z-index: 12;"><img data-natural-width="500" data-natural-height="684" style="" data-src="https://raw.githubusercontent.com/vegasbrianc/docker-ch-meetup10/master/images/docker-swarm-logo.png"></div></div></section>
+<div class="sl-block" data-block-type="image" style="min-width: 30px; min-height: 30px; width: 220px; height: 320px; left: 10px; top: 420px;"><div class="sl-block-content" style="z-index: 12;"><img data-natural-width="500" data-natural-height="684" style="" data-src="pres/images/docker-swarm-logo.png"></div></div></section>
 ---
-<section data-state='blackout' data-background-image="https://raw.githubusercontent.com/vegasbrianc/docker-ch-meetup10/master/images/bees.gif"><div class="sl-block" data-block-type="text" style="width: 900px; left: 200px; top: 23px; height: auto;"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="color: rgb(255, 255, 255); z-index: 11; border: 5px solid rgb(68, 68, 68); padding: 10px; background-color: rgb(170, 170, 170);">
+<section data-state='blackout' data-background-image="pres/images/bees.gif"><div class="sl-block" data-block-type="text" style="width: 900px; left: 200px; top: 23px; height: auto;"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="color: rgb(255, 255, 255); z-index: 11; border: 5px solid rgb(68, 68, 68); padding: 10px; background-color: rgb(170, 170, 170);">
 <h2 style="color:white;">Agenda</h2>
  <ol>
     <li class='fragment fade-up'>Introduction</li>
@@ -29,8 +29,8 @@
     </li></ul> 
      <br />
       <br />
-    <img data-natural-width="228" data-natural-height="683" style="width: 242px; height: 300px; left: 400px; top: 347.605px;" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/559775/images/2936748/brian_profile.jpg">
-    <img style="width: 242px; height: 300px; left: 400px; top: 347.605px;"  data-natural-width="228" data-natural-height="306" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/559775/images/2936745/docker_captian_image.png">
+    <img data-natural-width="228" data-natural-height="683" style="width: 242px; height: 300px; left: 400px; top: 347.605px;" data-src="pres/images/brian_christner.jpg">
+    <img style="width: 242px; height: 300px; left: 400px; top: 347.605px;"  data-natural-width="228" data-natural-height="306" data-src="pres/images/docker_captian_image.png">
 </section>
 ---
 <section data-transition='zoom'>
@@ -38,22 +38,22 @@
 <h1>Swarm Overview</h1>
 </section>
 ---
-<section data-background-transition='convex' data-background="https://raw.githubusercontent.com/vegasbrianc/docker-ch-meetup10/master/images/engine.jpg" data-background-size="100% 100%">
+<section data-background-transition='convex' data-background="pres/images/engine.jpg" data-background-size="100% 100%">
 </section>
 ---
-<section data-background-transition='convex' data-background="https://raw.githubusercontent.com/vegasbrianc/docker-ch-meetup10/master/images/swarm.png" data-background-transition="zoom" data-background-size="100% 100%" data-background="#fffffff">
+<section data-background-transition='convex' data-background="pres/images/swarm.png" data-background-transition="zoom" data-background-size="100% 100%" data-background="#fffffff">
 </section>
 ---
-<section data-background="https://raw.githubusercontent.com/vegasbrianc/docker-ch-meetup10/master/images/deploy.png" data-background-transition='fade' data-background-size="100% 100%" data-background="#fffffff">
+<section data-background="pres/images/deploy.png" data-background-transition='fade' data-background-size="100% 100%" data-background="#fffffff">
 </section>
 ---
-<section data-background="https://raw.githubusercontent.com/vegasbrianc/docker-ch-meetup10/master/images/demo.gif" data-background-transition='convex' data-background-size="100% 100%" data-background="#fffffff">
+<section data-background="pres/images/demo.gif" data-background-transition='convex' data-background-size="100% 100%" data-background="#fffffff">
 <h1 style="color:white;">DEMO TIME</h1>
 </section>
 ---
 <section data-transition='convex'>
 <link rel="stylesheet" href="css/theme/serif.css" id="theme">
-<h2>Follow along</h1>
+<h2>Follow along</h2>
 <h3>[https://github.com/vegasbrianc/docker-ch-meetup10](github.com/vegasbrianc/docker-ch-meetup10)</h3>
 </section>
 <section data-transition='convex' data-transition='zoom'>
@@ -99,6 +99,74 @@
 <pre class='fragment fade-up'><code data-trim data-noescape> ```$ docker run -it -d -p 8080:8080 -e HOST=192.168.99.100 \
 -v /var/run/docker.sock:/var/run/docker.sock \
 manomarks/visualizer```
-
 </code></pre>
+</section>
+<section data-transition='convex' data-transition='zoom'>
+<link rel="stylesheet" href="css/theme/serif.css" id="theme">
+    
+<h3>Step 4. Join Nodes to the Swarm</h3>
+<br>
+<pre class='fragment fade-up'><code data-trim data-noescape>$ docker swarm join-token worker</code></pre>
+<br>
+<pre class='fragment fade-up'><code data-trim data-noescape>$ docker-machine ssh node01</code></pre>
+<br>
+<pre class='fragment fade-up'><code data-trim data-noescape>```$ docker swarm join-token worker
+To add a worker to this swarm, run the following command:
+ docker swarm join \
+--token SWMTKN-1-1vh7h94m797al5a4pcma4p7nxdw22vqa2udwgkrkcd0twsz92d-4xgkpsqo1wyi0v7m4pnqcv2eq \
+192.168.99.100:237``` </code></pre>
+<br>
+<h4 class='fragment fade-up'>Repeat for Node02</h4>
+</section>
+<section data-transition='convex' data-transition='zoom'>
+<h3>Step 5. Verify our Swarm</h3>
+<br>
+<pre class='fragment fade-up'><code data-trim data-noescape>$ docker-machine ls</code></pre>
+<br>
+<pre class='fragment fade-up'><code data-trim data-noescape>$ docker-machine inspect mgr</code></pre>
+<br>
+<h4 class='fragment fade-up'>Open the Visualizer</h4>
+</section>
+<section data-transition='convex' data-transition='zoom'>
+<h3>Step 6. Create Overlay Network</h3>
+<br>
+<pre class='fragment fade-up'><code data-trim data-noescape>$ docker network create -d overlay catnet</code></pre>
+<br>
+<pre class='fragment fade-up'><code data-trim data-noescape>$ docker network ls</code></pre>
+</section>
+<section data-transition='convex' data-transition='zoom'>
+<h3>Step 7. DEPLOY</h3>
+<br>
+<pre class='fragment fade-up'><code data-trim data-noescape>$ docker service create --network catnet --name cat-app vegasbrianc/cats</code></pre>
+<br>
+<h4 class='fragment fade-up'>Time to Scale</h4>
+<pre class='fragment fade-up'><code data-trim data-noescape>$ docker service update --replicas 6 cat-app</code></pre>
+</section>
+---
+<section data-transition='zoom'>
+<link rel="stylesheet" href="css/theme/serif.css" id="theme">
+<h1>Conclusion</h1>
+<br />
+    <ul>
+    <li class='fragment fade-up'>Created Swarm Nodes</li>
+    <li class='fragment fade-up'>Joined Nodes to a Swarm</li>
+    <li class='fragment fade-up' >Deployed our Cat service</li>
+    <li class='fragment fade-up' >Scaled our Cat service</li></ul> 
+     <br />
+</section>
+---
+<section data-transition='zoom' data-background="pres/images/questions.png" data-background-size="1300px 700px">
+<link rel="stylesheet" href="css/theme/serif.css" id="theme">
+</section>
+<section data-transition='zoom'>
+<link rel="stylesheet" href="css/theme/serif.css" id="theme">
+<h1>Thank you</h1>
+<br>
+<br>
+<h3>Brian Christner / @idomyowntricks</h3>
+<br>
+<br>
+<h4>http://veggiemonk.github.io/awesome-docker</h4>
+</section>
+<section data-transition='zoom' data-background="pres/images/monitoring_mayhem.png" data-background-size="1300px 700px">
 </section>
