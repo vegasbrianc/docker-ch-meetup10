@@ -110,4 +110,7 @@ After huge fanfare our Cat's app is exploding in populartiy. It's time to scale 
 
 Quickly switch back to the Docker Visualizer to see how the services are placed. We can see that Swarm scheduled the service evenly across our nodes. Perfect!
 
+Step 3.4 Drain Manager Node
+Ok, so we deployed our service to all nodes including the manager node. Oops this is not exactly best practice. The Manager should only be focusing on the scheduling of tasks on the Swarm and not handling containers. We will drain the manager node which will then reschedule the containers to only node01 & node02
 
+    docker node update --availability drain mgr
