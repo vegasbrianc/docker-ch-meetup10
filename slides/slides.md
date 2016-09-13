@@ -82,9 +82,9 @@
 <h3>Step 2.</h3>
 <h3>If you Build it, the Swarm will come</h3>
 <br>
-<pre><code data-trim data-noescape>$ docker-machine create -d virtualbox mgr</code></pre>
+<pre class='fragment fade-up' ><code data-trim data-noescape>$ docker-machine create -d virtualbox mgr</code>
 <br>
-<pre><code data-trim data-noescape>$ docker-machine create -d virtualbox node01</code></pre>
+<code data-trim data-noescape>$ docker-machine create -d virtualbox node01</code></pre>
 <br>
 <pre class='fragment fade-up'><code data-trim data-noescape>$ docker-machine create -d virtualbox node02</code></pre>
 <br>
@@ -109,8 +109,6 @@ manomarks/visualizer```
     
 <h3>Step 4. Join Nodes to the Swarm</h3>
 <br>
-<pre class='fragment fade-up'><code data-trim data-noescape>$ docker swarm join-token worker</code></pre>
-<br>
 <pre class='fragment fade-up'><code data-trim data-noescape>$ docker-machine ssh node01</code></pre>
 <br>
 <pre class='fragment fade-up'><code data-trim data-noescape>```$ docker swarm join-token worker
@@ -128,7 +126,9 @@ To add a worker to this swarm, run the following command:
 <br>
 <pre class='fragment fade-up'><code data-trim data-noescape>$ docker-machine ssh mgr</code></pre>
 <br>
-<pre class='fragment fade-up'><code data-trim data-noescape>$ docker info mgr</code></pre>
+<pre class='fragment fade-up'><code data-trim data-noescape>$ docker node ls</code></pre>
+<br>
+<pre class='fragment fade-up'><code data-trim data-noescape>$ docker info</code></pre>
 <br>
 <h4 class='fragment fade-up'>Open the Visualizer 192.168.99.100:8080</h4>
 </section>
@@ -142,12 +142,15 @@ To add a worker to this swarm, run the following command:
 <section data-transition='convex' data-transition='zoom'>
 <h3>Step 7. DEPLOY</h3>
 <br>
-<pre class='fragment fade-up'><code data-trim data-noescape>$ docker service create --network catnet \ 
---contraint node.role!=manager` --name cat-app vegasbrianc/cats</code></pre>
+<pre class='fragment fade-up'><code data-trim data-noescape>$ docker service create --network catnet --name cat-app vegasbrianc/cats</code></pre>
 <br>
 <h4 class='fragment fade-up'>Time to Scale</h4>
 <br>
 <pre class='fragment fade-up'><code data-trim data-noescape>$ docker service update --replicas 6 cat-app</code></pre>
+<br>
+<h4 class='fragment fade-up'>Drain a node</h4>
+<br>
+<pre class='fragment fade-up'><code data-trim data-noescape>$ docker node update --availability drain mgr</code></pre>
 </section>
 ---
 <section data-transition='zoom'>
@@ -156,27 +159,25 @@ To add a worker to this swarm, run the following command:
 <br />
     <ul>
     <li class='fragment fade-up'>Created Swarm Nodes</li>
-    <br>
     <li class='fragment fade-up'>Joined Nodes to a Swarm</li>
-    <br>
     <li class='fragment fade-up' >Deployed our Cat service</li>
-    <br>
-    <li class='fragment fade-up' >Scaled our Cat service</li></ul> 
+    <li class='fragment fade-up' >Scaled our Cat service</li>
+    <li class='fragment fade-up' >Drained Manager Node</li></ul> 
      <br />
 </section>
 ---
 <section data-transition='zoom' data-background="pres/images/questions.png" data-background-size="1300px 700px">
 <link rel="stylesheet" href="css/theme/serif.css" id="theme">
 </section>
-<section data-transition='zoom'>
-<link rel="stylesheet" href="css/theme/serif.css" id="theme">
-<h1>Thank you</h1>
-<br>
-<br>
-<h3>Brian Christner / @idomyowntricks</h3>
-<br>
-<br>
-<h4>http://veggiemonk.github.io/awesome-docker</h4>
-</section>
 <section data-transition='zoom' data-background="pres/images/monitoring_mayhem.png" data-background-size="1300px 700px">
+</section>
+<section data-transition='zoom' data-background="pres/images/container_yard.jpg" data-background-size="1300px 700px"><div class="sl-block" data-block-type="text" style="width: 900px; left: 88px; top: 23px; height: auto;"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="color: rgb(255, 255, 255); z-index: 11; border: 5px solid rgb(68, 68, 68); padding: 10px; background-color: rgb(170, 170, 170);">
+<link rel="stylesheet" href="css/theme/serif.css" id="theme">
+<h1 style="color:white;">Thank you</h1>
+<br>
+<br>
+<h3 style="color:white;" >Brian Christner / @idomyowntricks</h3>
+<br>
+<br>
+<h4 style="color:white;">http://veggiemonk.github.io/awesome-docker</h4>
 </section>
