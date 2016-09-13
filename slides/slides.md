@@ -1,14 +1,17 @@
 
 <section  data-background='pres/images/container_yard.jpg' data-state='blackout'>
 </section>
-<section  data-state='blackout' data-background-image="pres/images/container_yard.jpg" ><div class="sl-block" data-block-type="text" style="width: 900px; left: 88px; top: 23px; height: auto;" data-block-id="cae64ddc3e32ca49f73b6ec7ffddf190"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="color: rgb(255, 255, 255); z-index: 11; border: 5px solid rgb(68, 68, 68); padding: 10px; background-color: rgb(170, 170, 170);">
+<section  data-state='blackout' data-background-image="pres/images/container_yard.jpg" ><div class="sl-block" data-block-type="text" style="width: 900px; left: 88px; top: 23px; height: auto;"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="color: rgb(255, 255, 255); z-index: 11; border: 5px solid rgb(68, 68, 68); padding: 10px; background-color: rgb(170, 170, 170);">
 <h2 style="color:white;">Docker Swarm Demo</h2>
 <h4 style="color:white;">Docker Switzerland Meetup #10</h4>
 <h4 style="color:white;">13 September 2016</h4>
 </div></div>
 <div class="sl-block" data-block-type="image" style="min-width: 30px; min-height: 30px; width: 220px; height: 320px; left: 10px; top: 420px;"><div class="sl-block-content" style="z-index: 12;"><img data-natural-width="500" data-natural-height="684" style="" data-src="pres/images/docker-swarm-logo.png"></div></div></section>
 ---
-<section data-state='blackout' data-background-image="pres/images/bees.gif"><div class="sl-block" data-block-type="text" style="width: 900px; left: 200px; top: 23px; height: auto;"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="color: rgb(255, 255, 255); z-index: 11; border: 5px solid rgb(68, 68, 68); padding: 10px; background-color: rgb(170, 170, 170);">
+<section data-state='blackout' data-background-image="pres/images/bees.gif" data-background-size="1300px 850px">
+</section>
+<section data-state='blackout' data-background-image="pres/images/bees.gif" data-background-size="1300px 850px">
+<div class="sl-block" data-block-type="text" style="width: 900px; left: 200px; top: 23px; height: auto;"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="color: rgb(255, 255, 255); z-index: 11; border: 5px solid rgb(68, 68, 68); padding: 10px; background-color: rgb(170, 170, 170);">
 <h2 style="color:white;">Agenda</h2>
  <ol>
     <li class='fragment fade-up'>Introduction</li>
@@ -77,13 +80,13 @@
 <link rel="stylesheet" href="css/theme/serif.css" id="theme">
     
 <h3>Step 2.</h3>
-<h3>If your Build it, the Swarm will come</h3>
+<h3>If you Build it, the Swarm will come</h3>
 <br>
 <pre><code data-trim data-noescape>$ docker-machine create -d virtualbox mgr</code></pre>
 <br>
 <pre><code data-trim data-noescape>$ docker-machine create -d virtualbox node01</code></pre>
 <br>
-<pre><code data-trim data-noescape>$ docker-machine create -d virtualbox node02</code></pre>
+<pre class='fragment fade-up'><code data-trim data-noescape>$ docker-machine create -d virtualbox node02</code></pre>
 <br>
 <pre class='fragment fade-up'><code data-trim data-noescape>$ docker-machine ls</code></pre>
 </section>
@@ -123,9 +126,11 @@ To add a worker to this swarm, run the following command:
 <br>
 <pre class='fragment fade-up'><code data-trim data-noescape>$ docker-machine ls</code></pre>
 <br>
-<pre class='fragment fade-up'><code data-trim data-noescape>$ docker-machine inspect mgr</code></pre>
+<pre class='fragment fade-up'><code data-trim data-noescape>$ docker-machine ssh mgr</code></pre>
 <br>
-<h4 class='fragment fade-up'>Open the Visualizer</h4>
+<pre class='fragment fade-up'><code data-trim data-noescape>$ docker info mgr</code></pre>
+<br>
+<h4 class='fragment fade-up'>Open the Visualizer 192.168.99.100:8080</h4>
 </section>
 <section data-transition='convex' data-transition='zoom'>
 <h3>Step 6. Create Overlay Network</h3>
@@ -137,9 +142,11 @@ To add a worker to this swarm, run the following command:
 <section data-transition='convex' data-transition='zoom'>
 <h3>Step 7. DEPLOY</h3>
 <br>
-<pre class='fragment fade-up'><code data-trim data-noescape>$ docker service create --network catnet --name cat-app vegasbrianc/cats</code></pre>
+<pre class='fragment fade-up'><code data-trim data-noescape>$ docker service create --network catnet \ 
+--contraint node.role!=manager` --name cat-app vegasbrianc/cats</code></pre>
 <br>
 <h4 class='fragment fade-up'>Time to Scale</h4>
+<br>
 <pre class='fragment fade-up'><code data-trim data-noescape>$ docker service update --replicas 6 cat-app</code></pre>
 </section>
 ---
@@ -149,8 +156,11 @@ To add a worker to this swarm, run the following command:
 <br />
     <ul>
     <li class='fragment fade-up'>Created Swarm Nodes</li>
+    <br>
     <li class='fragment fade-up'>Joined Nodes to a Swarm</li>
+    <br>
     <li class='fragment fade-up' >Deployed our Cat service</li>
+    <br>
     <li class='fragment fade-up' >Scaled our Cat service</li></ul> 
      <br />
 </section>
