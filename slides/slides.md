@@ -101,7 +101,7 @@
 <br>
 <pre class='fragment fade-up'><code data-trim data-noescape> ```$ docker run -it -d -p 8080:8080 -e HOST=192.168.99.100 \
 -v /var/run/docker.sock:/var/run/docker.sock \
-manomarks/visualizer```
+--name viz manomarks/visualizer```
 </code></pre>
 </section>
 <section data-transition='convex' data-transition='zoom'>
@@ -122,8 +122,6 @@ To add a worker to this swarm, run the following command:
 <section data-transition='convex' data-transition='zoom'>
 <h3>Step 5. Verify our Swarm</h3>
 <br>
-<pre class='fragment fade-up'><code data-trim data-noescape>$ docker-machine ls</code></pre>
-<br>
 <pre class='fragment fade-up'><code data-trim data-noescape>$ docker-machine ssh mgr</code></pre>
 <br>
 <pre class='fragment fade-up'><code data-trim data-noescape>$ docker node ls</code></pre>
@@ -142,7 +140,8 @@ To add a worker to this swarm, run the following command:
 <section data-transition='convex' data-transition='zoom'>
 <h3>Step 7. DEPLOY</h3>
 <br>
-<pre class='fragment fade-up'><code data-trim data-noescape>$ docker service create --network catnet --name cat-app vegasbrianc/cats</code></pre>
+<pre class='fragment fade-up'><code data-trim data-noescape>$ docker service create --network catnet -p 5000:5000 \
+--name cat-app vegasbrianc/cats</code></pre>
 <br>
 <h4 class='fragment fade-up'>Time to Scale</h4>
 <br>

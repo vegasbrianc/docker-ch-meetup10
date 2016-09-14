@@ -56,7 +56,7 @@ Once connected let's initialize our Swarm
 
 Upond command completion you will notice two commands printed. Record the command for adding a work node for later. For visualization purposes we will run a Swarm Visualizer created by [Swarm Visulaizer](https://github.com/ManoMarks/docker-swarm-visualizer)
 
-    docker run -it -d -p 8080:8080 -e HOST=192.168.99.100 -v /var/run/docker.sock:/var/run/docker.sock manomarks/visualizer
+    docker run -it -d -p 8080:8080 -e HOST=192.168.99.100 -v /var/run/docker.sock:/var/run/docker.sock --name viz manomarks/visualizer
     
 Open the visualizer to monitor changes to your swarm at `http://192.168.99.100:8080`
 
