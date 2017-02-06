@@ -54,7 +54,7 @@ Once connected let's initialize our Swarm
 
     docker swarm init --advertise-addr 192.168.99.100
 
-Upond command completion you will notice two commands printed. Record the command for adding a work node for later. For visualization purposes we will run a Swarm Visualizer created by [Swarm Visulaizer](https://github.com/ManoMarks/docker-swarm-visualizer)
+Upon command completion you will notice two commands printed. Record the command for adding a work node for later. For visualization purposes we will run a Swarm Visualizer created by [Swarm Visulaizer](https://github.com/ManoMarks/docker-swarm-visualizer)
 
     docker run -it -d -p 8080:8080 -e HOST=192.168.99.100 -v /var/run/docker.sock:/var/run/docker.sock --name viz manomarks/visualizer
     
@@ -96,7 +96,7 @@ Before we can deploy a service to our newly created Swarm we should create an ov
 
   2. Confirm that our new network was created
 
-   docker network ls 
+    docker network ls 
 
 Step 3.2 Deploy Service
 The time has come to deploy our application to our Swarm. We will start with 1 instance of our service and then scale our service to meet demand.
