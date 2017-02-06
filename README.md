@@ -92,11 +92,11 @@ Before we can deploy a service to our newly created Swarm we should create an ov
 
   1. Create Swarm Overlay Network
 
-    docker network create -d overlay catnet
+     docker network create -d overlay catnet
 
   2. Confirm that our new network was created
 
-    docker network ls 
+     docker network ls 
 
 Step 3.2 Deploy Service
 The time has come to deploy our application to our Swarm. We will start with 1 instance of our service and then scale our service to meet demand.
